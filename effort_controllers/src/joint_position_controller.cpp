@@ -190,7 +190,7 @@ void JointPositionController::update(const ros::Time& time, const ros::Duration&
   }
   else if (joint_urdf_->type == urdf::Joint::CONTINUOUS)
   {
-    error = angles::shortest_angular_distance(current_position, command_position);
+    error = command_position - current_position;
   }
   else //prismatic
   {
